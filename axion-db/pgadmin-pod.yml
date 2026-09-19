@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pgadmin
+  labels:
+    app.kubernetes.io/name: pgadmin
+spec:
+  containers:
+  - name: pgadmin
+    image: dpage/pgadmin4
+    ports:
+      - containerPort: 80
+    env:
+      - name: PGADMIN_DEFAULT_EMAIL
+        value: "admin@pgadmin.org"
+      - name: PGADMIN_DEFAULT_PASSWORD
+        value: "admin"
+      - name: PGADMIN_CONFIG_ENHANCED_COOKIE_PROTECTION
+        value: "False"  
